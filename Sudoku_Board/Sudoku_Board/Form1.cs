@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Sudoku_Board
 {
-    public partial class Form1 : Form
+    public partial class SudokuGame : Form
     {
-        public Form1()
+        public SudokuGame()
         {
             InitializeComponent();
         }
