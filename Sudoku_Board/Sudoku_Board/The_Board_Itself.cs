@@ -16,7 +16,7 @@ using System.Windows.Forms;
 
 namespace Sudoku_Board
 {
-    static class Program
+    static class The_Board_Itself
     {
         /// <summary>
         /// The main entry point for the application.
