@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sudoku_Board
 {
-    class Solver : IEnumerable
+    class Solver 
     {
         bool[] values;
         int count;
