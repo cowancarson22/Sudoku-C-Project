@@ -45,6 +45,29 @@ namespace Sudoku_Board
             for(row =1; row <9; row++)
             {
                 randIndex = rnd.Next(0, valueSet.Count);
+                newVal = valueSet[randIndex];
+                valueSet2.Add(newVal);
+                valueSet.Remove(newVal);
+                tempGrid.InitSetCell(row, col, newVal);
+            }
+            row = 0;
+            for (col = 1; col < 3; col++)
+            {
+                randIndex = rnd.Next(0, valueSet.Count);
+                newVal = valueSet2[randIndex];
+                while ((newVal == tempGrid[1, 0] || (newVal == tempGrid.Grid[2, 0])))
+                {
+                    randIndex = rnd.Next(0, valueSet2.Count);
+                    newVal = valueSet2[randIndex];
+                }
+                valueSet2.Remove(newVal);
+            }
+            for (col = 3; col < 9; col++)
+            {
+                randIndex = rnd.Next(0, valueSet2.Count);
+                newVal = valueSet2[randIndex];
+                valueSet2.Remove(newVal);
+                tempGrid.InitSetCell(row, col, newVal);
             }
         }
 
