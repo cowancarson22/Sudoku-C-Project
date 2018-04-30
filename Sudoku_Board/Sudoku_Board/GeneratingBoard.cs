@@ -69,6 +69,26 @@ namespace Sudoku_Board
                 valueSet2.Remove(newVal);
                 tempGrid.InitSetCell(row, col, newVal);
             }
+            for(col=3; col <9; col++)
+            {
+                randIndex = rnd.Next(0, valueSet2.Count);
+                newVal = valueSet2[randIndex];
+                valueSet2.Remove(newVal);
+                tempGrid.InitSetCell(row, col, newVal);
+            }
+            do
+            {
+                puzzleSolver = new PuzzleSolver();
+                puzzleSolver.SolveGrid((PuzzleGrid)tempGrid.Clone(), false);
+                SolutionGrid = puzzleSolver.SolutionGrid;
+            } while (SolutionGrid == null || SolutionGrid.IsBlank());
+            PermaGrid = Blanker(SolutionGrid);
+            return PermaGrid;
+        }
+
+        public PuzzleGrid Blanker(PuzzleGrid solveGrid)
+        {
+
         }
 
 
