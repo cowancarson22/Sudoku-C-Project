@@ -88,10 +88,56 @@ namespace Sudoku_Board
 
         public PuzzleGrid Blanker(PuzzleGrid solveGrid)
         {
+            PuzzleGrid tempGrid;
+            PuzzleGrid saveCopy;
 
+            bool unique = true;
+            int totalBlanks = 0;
+            int tries = 0;
+            int desiredBlanks;
+            int symmetry = 0;
+            tempGrid = (PuzzleGrid)solveGrid.Clone();
+
+            Random rnd = new Random();
+
+            switch (difficulty)
+            {
+                case Difficulty.Easy:
+                    desiredBlanks = 40;
+                    break;
+                case Difficulty.Medium:
+                    desiredBlanks = 45;
+                    break;
+                case Difficulty.Hard:
+                    desiredBlanks = 50;
+                    break;
+                default:
+                    desiredBlanks = 40;
+                    break;
+            }
+
+            symmetry = rnd.Next(0, 2);
+            do
+            {
+                saveCopy = (PuzzleGrid)tempGrid.Clone();
+                tempGrid = RandomlyBlank(tempGrid, symmetry, ref totalBlanks);
+                puzzleSolver = new PuzzleSolver();
+                unique = puzzleSolver.SolveGrid((PuzzleGrid)tempGrid.Clone(), true);
+                if (!unique)
+                {
+                    tempGrid = (PuzzleGrid)saveCopy.Clone();
+                    tries++;
+                }
+            } while ((totalBlanks < desiredBlanks) && (tries < 1000));
+            solveGrid = tempGrid;
+            solveGrid.Finish();
+            return solveGrid;
         }
 
+        public PuzzleGrid RandomlyBlank(PuzzleGrid tempGrid, int sym, ref int blankCount)
+        {
 
+        }
 
     }
 }
