@@ -136,7 +136,8 @@ namespace Sudoku_Board
 
         public PuzzleGrid RandomlyBlank(PuzzleGrid tempGrid, int sym, ref int blankCount)
         {
-
+            Random rnd = new Random();
+            int row = rnd.Next(0, 8);
         }
 
     }
