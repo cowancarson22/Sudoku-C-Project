@@ -138,6 +138,13 @@ namespace Sudoku_Board
         {
             Random rnd = new Random();
             int row = rnd.Next(0, 8);
+            int column = rnd.Next(0, 8);
+            while (tempGrid.Grid[row, column] == 0)
+            {
+                row = rnd.Next(0, 8);
+                column = rnd.Next(0, 8);
+            }
+
         }
 
     }
