@@ -144,7 +144,40 @@ namespace Sudoku_Board
                 row = rnd.Next(0, 8);
                 column = rnd.Next(0, 8);
             }
-
+            tempGrid.InitSetCell(row, column, 0);
+            blankCount++;
+            switch (sym)
+            {
+                case 0:
+                    if(tempGrid.Grid[row, 8 - column] != 0)
+                    {
+                        blankCount++;
+                    }
+                    tempGrid.InitSetCell(row, 8 - column, 0);
+                    break;
+                case 1:
+                    if (tempGrid.Grid[column, row] != 0)
+                    {
+                        blankCount++;
+                    }
+                    tempGrid.InitSetCell(column, row, 0);
+                    break;
+                case 2:
+                    if (tempGrid.Grid[column, row] != 0)
+                    {
+                        blankCount++;
+                    }
+                    tempGrid.InitSetCell(column, row, 0);
+                    break;
+                default:
+                    if (tempGrid.Grid[row, 8-column] != 0)
+                    {
+                        blankCount++;
+                    }
+                    tempGrid.InitSetCell(column, row, 0);
+                    break;
+            }
+            return tempGrid;
         }
 
     }
