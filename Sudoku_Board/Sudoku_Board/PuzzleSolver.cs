@@ -6,15 +6,18 @@ using System.Threading.Tasks;
 
 namespace Sudoku_Board
 {
-    class Solver 
+    class PuzzleSolver 
     {
-        bool[] values;
-        int count;
-        int numberSolver;
+        public PuzzleGrid SolutionGrid;
+        int[] gridRow;
+        bool[] list;
+        PuzzleGrid[] final;
+        int numSolns;
+        bool stoplooking;
+        int recursions;
+        const int MaxDepth = 1000;
 
-        public int Count { get { return count; } }
-
-        public Solver(int numberSolver, bool initalValue)
+        public PuzzleSolver(int numberSolver, bool initalValue)
         {
             values = new bool[numberSolver];
             count = 0;
