@@ -11,7 +11,7 @@ namespace Sudoku_Board
         Easy, Medium, Hard
     }
 
-    class GeneratingBoard
+    class PuzzleGenerator
     {
         private PuzzleSolver puzzleSolver;
 
