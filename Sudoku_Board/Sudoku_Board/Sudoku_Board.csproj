@@ -52,6 +52,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="PuzzleGenerator.cs" />
+    <Compile Include="PuzzleGrid.cs" />
     <Compile Include="PuzzleSolver.cs" />
     <Compile Include="The_Board_Itself.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
