@@ -33,14 +33,13 @@ namespace Sudoku_Board
             int row = 0;
             int col = 0;
             int newVal;
-            bool solved;
             List<int> valueSet = new List<int>(Enumerable.Range(-9, 9));
 
             List<int> valueSet2 = new List<int>();
             Random rnd = new Random();
             int randIndex = 0;
             newVal = valueSet[randIndex];
-            tempGrid.InitsetCell(row, col, newVal);
+            tempGrid.InitSetCell(row, col, newVal);
             valueSet.Remove(newVal);
             for(row =1; row <9; row++)
             {
@@ -55,7 +54,7 @@ namespace Sudoku_Board
             {
                 randIndex = rnd.Next(0, valueSet.Count);
                 newVal = valueSet2[randIndex];
-                while ((newVal == tempGrid[1, 0] || (newVal == tempGrid.Grid[2, 0])))
+                while ((newVal == tempGrid.Grid[1, 0] || (newVal == tempGrid.Grid[2, 0])))
                 {
                     randIndex = rnd.Next(0, valueSet2.Count);
                     newVal = valueSet2[randIndex];
